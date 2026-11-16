@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "nasa-rosa": {
+      "command": "python3",
+      "args": ["scripts/rosa_mcp_server.py"],
+      "env": {
+        "ROBOT_SSH_HOST": "",
+        "ROS_SETUP_PATH": "/opt/ros/humble/setup.bash",
+        "ROSA_MODEL": "llama3.1"
+      }
+    }
+  }
+}
