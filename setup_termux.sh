@@ -2,11 +2,11 @@
 set -e
 
 echo "[1/3] Updating Termux packages..."
-pkg update -y && pkg install -y python git openssh
+pkg update -y && pkg install -y python git openssh gh
 
 echo "[2/3] Cloning Golden-Agent core..."
 if [ ! -d "Golden-Agent" ]; then
-  git clone https://github.com
+  gh repo clone KrypticKode007/Golden-Agent
 fi
 
 echo "[3/3] Linking zero-dependency ROSA MCP bridge into Golden-Agent..."
