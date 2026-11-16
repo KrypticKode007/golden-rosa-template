@@ -1,0 +1,17 @@
+name: Validate MCP Bridge
+on: [push, pull_request]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install MCP SDK & Check Syntax
+        run: |
+          pip install mcp
+          python3 -m py_compile scripts/rosa_mcp_server.py
+          python3 -m json.tool mcp_servers.json > /dev/null
+          bash -n setup_termux.sh
